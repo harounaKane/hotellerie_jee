@@ -8,27 +8,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Home
- */ 
-@WebServlet("/Home")
-public class Home extends HttpServlet {
+ * Servlet implementation class Reservation
+ */
+@WebServlet("/Reservation")
+public class Reservation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /** 
+	String vue = "/index.jsp";
+	final String VUE_DEF = "/WEB-INF/vues/";
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() { 
+    public Reservation() {
         super();
         // TODO Auto-generated constructor stub
-    } 
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		String action = request.getParameter("action");
+		
+		if( action != null ) {
+			if( action.equals("reservations") ) {
+				System.out.println(action);
+				
+				vue = VUE_DEF + "listeReservation.jsp";
+				
+			}else if( action.equals("retirer") ) {
+				System.out.println(action);
+								
+			}else if( action.equals("prolonger") ) {
+				System.out.println(action);
+								
+			}
+		}
+		
+		getServletContext().getRequestDispatcher(vue).forward(request, response);
 	}
- 
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

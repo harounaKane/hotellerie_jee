@@ -21,16 +21,16 @@
     <nav class="navbar navbar-dark">
       <!-- on teste si la session existe -->
 
-        <a class="text-white" href="?action=deconnexion">Se déconnecter </a>
+        <a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=deconnexion">Se déconnecter </a>
        <!-- ADMIN & RECEPTIONNISTE -->
         
-          <a class="text-white" href="?action=resrvations">Toutes les réservations </a>
+          <a class="text-white" href="${pageContext.request.contextPath}/Reservation?action=reservations">Toutes les réservations </a>
 
           <!-- ADMIN -->
-          <a class="text-white" href="?action=ajouter">Ajouter </a>
+          <a class="text-white" href="${pageContext.request.contextPath}/Ctl_chambre?action=ajouter">Ajouter </a>
     
 
-        <a class="text-white" href="?action=connexion">Se connecter </a>
+        <a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=connexion">Se connecter </a>
 
     </nav>
   </header>
