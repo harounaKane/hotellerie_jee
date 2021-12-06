@@ -22,11 +22,11 @@
 			<div class="col-12 col-sm-3">
 				<label for="">Confort : </label>
 				<div class="form-check form-check-inline">
-					<input type="radio" name="confort" class="form-check-input" />				
+					<input type="radio" name="confort" class="form-check-input" value="1" />				
 					<label for="">OUI</label>
 				</div>
 				<div class="form-check form-check-inline">
-					<input type="radio" name="confort" class="form-check-input" />				
+					<input type="radio" name="confort" class="form-check-input" value="0" />				
 					<label for="">NON</label>
 				</div>
 			</div>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.Chambre;
+import modele.DaoContext;
+
 /**
  * Servlet implementation class Home
  */ 
@@ -21,11 +24,20 @@ public class Home extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     } 
+    
+    @Override
+    public void init() throws ServletException {
+    	DaoContext context = new DaoContext();
+    	
+    	System.out.println(context);
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Chambre chambre = new Chambre();
+		request.setAttribute("chambres", chambre);
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
  

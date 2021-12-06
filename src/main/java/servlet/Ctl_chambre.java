@@ -44,6 +44,7 @@ public class Ctl_chambre extends HttpServlet {
 				return;
 			
 			}else if( action.equals("update") ) {
+				
 				String chambre = "toto";
 				request.setAttribute("chambre", chambre);;
 				vue = VUE_DEF + "ajouter.jsp";
