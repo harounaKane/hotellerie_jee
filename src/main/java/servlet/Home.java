@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Chambre;
+import modele.ChambreDAO;
 import modele.DaoContext;
 
 /**
@@ -36,8 +39,11 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Chambre chambre = new Chambre();
-		request.setAttribute("chambres", chambre);
+		
+		ChambreDAO chambreDAO = new ChambreDAO();
+		
+		List<Chambre> chambres = chambreDAO.getAllChambre();
+		request.setAttribute("chambres", chambres);
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
  

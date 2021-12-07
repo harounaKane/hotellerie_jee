@@ -5,17 +5,19 @@ public class Client {
 	private int numClient;
 	private String nom;
 	private String prenom;
+	private int telephone;
 	private String adresse;
 	private int code_postal;
 	private String ville;
 	
 	public Client() {}
 
-	public Client(int numClient, String nom, String prenom, String adresse, int code_postal, String ville) {
+	public Client(int numClient, String nom, String prenom, int tel, String adresse, int code_postal, String ville) {
 		super();
 		this.numClient = numClient;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.telephone = tel;
 		this.adresse = adresse;
 		this.code_postal = code_postal;
 		this.ville = ville;
@@ -44,6 +46,14 @@ public class Client {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public int getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
+	}
 
 	public String getAdresse() {
 		return adresse;
@@ -71,7 +81,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [numClient=" + numClient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
+		return "Client [numClient=" + numClient + ", nom=" + nom + ", prenom=" + prenom + ", téléphon=" + telephone + ", adresse=" + adresse
 				+ ", code_postal=" + code_postal + ", ville=" + ville + "]";
 	}
 	

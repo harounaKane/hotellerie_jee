@@ -19,21 +19,24 @@
     <div class="text-end"><i class="fa fa-power-off"></i></div>
     <a href="${pageContext.request.contextPath}/Home"><h1>Bienvenue sur notre site</h1></a>
     <nav class="navbar navbar-dark">
-      <!-- on teste si la session existe -->
-
-        <a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=deconnexion">Se déconnecter </a>
-       <!-- ADMIN & RECEPTIONNISTE -->
-        
-          <a class="text-white" href="${pageContext.request.contextPath}/Reservation?action=reservations">Toutes les réservations </a>
-
-          <!-- ADMIN -->
-          <a class="text-white" href="${pageContext.request.contextPath}/Ctl_chambre?action=ajouter">Ajouter </a>
-    
-
-        <a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=connexion">Se connecter </a>
-
+      	<!-- on teste si la session existe -->
+		<c:choose>
+			<c:when test="${!empty sessionScope.personnel}">
+		        <a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=deconnexion">Se déconnecter </a>
+		       <!-- ADMIN & RECEPTIONNISTE -->
+		          <a class="text-white" href="${pageContext.request.contextPath}/Reservation?action=reservations">Toutes les réservations </a>
+		
+		          <!-- ADMIN -->
+		          <c:if test="${sessionScope.personnel.role == 'admin'}">
+		          	<a class="text-white" href="${pageContext.request.contextPath}/Ctl_chambre?action=ajouter">Ajouter </a>
+		          </c:if>
+			</c:when>
+			<c:otherwise>
+				<a class="text-white" href="${pageContext.request.contextPath}/Personnel?action=connexion">Se connecter </a>
+			</c:otherwise>
+		</c:choose>
+    	<a class="text-white" href="${pageContext.request.contextPath}/Ctl_chambre?action=ajouter">Ajouter </a>
     </nav>
   </header>
   <main class="container-fluid bg-light">
 
-  

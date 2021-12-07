@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+import beans.Utilisateur;
+import modele.PersonnelDAO;
 
 /**
  * Servlet implementation class Personnel
@@ -18,7 +23,7 @@ public class Personnel extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public Personnel() {
-        super();
+        super(); 
         // TODO Auto-generated constructor stub
     }
 
@@ -29,8 +34,11 @@ public class Personnel extends HttpServlet {
 		String action = request.getParameter("action");
 		String vue = "/index.jsp";
 		
+		HttpSession session = request.getSession();
+		
 		if( action != null ) {
 			if( action.equals("deconnexion") ) {
+				session.invalidate();
 				response.sendRedirect("Home");
 				return;
 				
@@ -47,8 +55,15 @@ public class Personnel extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
+		String mdp = request.getParameter("mdp");
 		
-		System.out.println(login);
+		PersonnelDAO personnelDAO = new PersonnelDAO();
+		Utilisateur user = personnelDAO.connexion(login, mdp);
+		
+		if( user != null ) {
+			HttpSession session = request.getSession();
+			session.setAttribute("personnel", user);
+		}else System.out.println("connexion incorecte");
 		
 		doGet(request, response);
 	}

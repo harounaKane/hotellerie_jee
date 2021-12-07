@@ -23,7 +23,6 @@ public class DaoContext {
 	
 	public ResultSet requeteStatement(String query) {
 		try {
-		//	"SELECT * FROM chambre";
 			Statement statement = connection.createStatement();
 			return statement.executeQuery(query);
 		} catch (SQLException e) { System.out.println(e); }
