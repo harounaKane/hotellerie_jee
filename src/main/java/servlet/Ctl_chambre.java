@@ -70,21 +70,27 @@ public class Ctl_chambre extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		
+		 
 		ChambreDAO chambreDAO = new ChambreDAO();
 		
 		if( action.equals("Ajouter") ) {
 			Chambre_form form = new Chambre_form();
-			Chambre chambre = form.recuperationForm(request);
-			chambreDAO.ajouterChambre(chambre);
-			response.sendRedirect("Home");
-			return;
+			Chambre chambre = form.recuperationForm(request);	
+			
+			if(chambre != null) {
+				chambreDAO.ajouterChambre(chambre);
+				response.sendRedirect("Home");
+				return;
+			} 
+
+			request.setAttribute("form_erreur", form);
+			vue = VUE_DEF + "ajouter.jsp";
 			
 		}else if( action.equals("Modifier") ) {
 			System.out.println(action);
 		}
 		
-		doGet(request, response);
+		getServletContext().getRequestDispatcher(vue).forward(request, response);
 	}
 
 }
