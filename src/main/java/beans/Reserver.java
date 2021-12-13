@@ -1,63 +1,59 @@
 package beans;
 
-import java.util.Date;
-
 public class Reserver {
 
-	private Client client;
-	private Chambre chambre;
-	private Date dateArrivee;
-	private Date dateDepart;
-	
-	public Reserver() {}
+    private Client  client;
+    private Chambre chambre;
+    private String  dateArrivee;
+    private String  dateDepart;
 
-	public Reserver(Client client, Chambre chambre, Date dateArrivee, Date dateDepart) {
-		super();
-		this.client = client;
-		this.chambre = chambre;
-		this.dateArrivee = dateArrivee;
-		this.dateDepart = dateDepart;
-	}
+    public Reserver() {
+    }
 
-	public Client getClient() {
-		return client;
-	}
+    public Reserver( Client client, Chambre chambre, String dateArrivee, String dateDepart ) {
+        super();
+        this.client = client;
+        this.chambre = chambre;
+        this.dateArrivee = dateArrivee;
+        this.dateDepart = dateDepart;
+    }
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public Client getClient() {
+        return client;
+    }
 
-	public Chambre getChambre() {
-		return chambre;
-	}
+    public void setClient( Client client ) {
+        this.client = client;
+    }
 
-	public void setChambre(Chambre chambre) {
-		this.chambre = chambre;
-	}
+    public Chambre getChambre() {
+        return chambre;
+    }
 
-	public Date getDateArrivee() {
-		return dateArrivee;
-	}
+    public void setChambre( Chambre chambre ) {
+        this.chambre = chambre;
+    }
 
-	public void setDateArrivee(Date dateArrivee) {
-		this.dateArrivee = dateArrivee;
-	}
+    public String getDateArrivee() {
+        return dateArrivee;
+    }
 
-	public Date getDateDepart() {
-		return dateDepart;
-	}
+    public void setDateArrivee( String dateArrivee ) {
+        this.dateArrivee = dateArrivee;
+    }
 
-	public void setDateDepart(Date dateDepart) {
-		this.dateDepart = dateDepart;
-	}
+    public String getDateDepart() {
+        return dateDepart;
+    }
 
-	@Override
-	public String toString() {
-		return "Reserver [client=" + client + ", chambre=" + chambre + ", dateArrivee=" + dateArrivee + ", dateDepart="
-				+ dateDepart + "]";
-	}
-	
-	
-	
-	
+    public void setDateDepart( String dateDepart ) {
+        this.dateDepart = dateDepart;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserver [client=" + client + ", chambre=" + chambre + ", dateArrivee=" + dateArrivee + ", dateDepart="
+                + dateDepart + "]";
+    }
+
 }

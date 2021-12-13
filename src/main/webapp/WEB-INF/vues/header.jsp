@@ -37,7 +37,6 @@
 				<a data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-white" href="${pageContext.request.contextPath}/Personnel?action=connexion">Se connecter </a>
 			</c:otherwise>
 		</c:choose>
-    	<a class="text-white" href="${pageContext.request.contextPath}/Ctl_chambre?action=ajouter">Ajouter </a>
     </nav>
   </header>
   <main class="container-fluid bg-light">
